@@ -1,0 +1,180 @@
+// Shape.java
+package com.codewithharry.shape;
+
+public abstract class Shape {
+    public abstract double volume();
+    public abstract double surfaceArea();
+}
+
+// Rectangle.java
+package com.codewithharry.shape;
+
+public class Rectangle extends Shape {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    @Override
+    public double volume() {
+        return 0; // Volume not applicable for 2D shapes
+    }
+
+    @Override
+    public double surfaceArea() {
+        return 2 * (length + width);
+    }
+}
+
+// Square.java
+package com.codewithharry.shape;
+
+public class Square extends Rectangle {
+    public Square(double side) {
+        super(side, side);
+    }
+}
+
+// Circle.java
+package com.codewithharry.shape;
+
+public class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double volume() {
+        return 0; // Volume not applicable for 2D shapes
+    }
+
+    @Override
+    public double surfaceArea() {
+        return Math.PI * Math.pow(radius, 2);
+    }
+}
+
+// Cylinder.java
+package com.codewithharry.shape;
+
+public class Cylinder extends Circle {
+    private double height;
+
+    public Cylinder(double radius, double height) {
+        super(radius);
+        this.height = height;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    @Override
+    public double volume() {
+        return Math.PI * Math.pow(getRadius(), 2) * height;
+    }
+
+    @Override
+    public double surfaceArea() {
+        return 2 * super.surfaceArea() + 2 * Math.PI * getRadius() * height;
+    }
+}
+
+// Sphere.java
+package com.codewithharry.shape;
+
+public class Sphere extends Circle {
+    public Sphere(double radius) {
+        super(radius);
+    }
+
+    @Override
+    public double volume() {
+        return (4.0 / 3.0) * Math.PI * Math.pow(getRadius(), 3);
+    }
+
+    @Override
+    public double surfaceArea() {
+        return 4 * super.surfaceArea();
+    }
+}
+
+
+// Main.java
+package com.codewithharry.shape;
+
+public class Main {
+    public static void main(String[] args) {
+        //Rectangle
+        Rectangle rectangle = new Rectangle(5, 3);
+        System.out.println("Rectangle:");
+        System.out.println("Length: " + rectangle.getLength());
+        System.out.println("Width: " + rectangle.getWidth());
+        System.out.println("Surface Area: " + rectangle.surfaceArea());
+        System.out.println();
+
+        //Square
+        Square square = new Square(4);
+        System.out.println("Square:");
+        System.out.println("Side: " + square.getLength()); 
+
+        System.out.println("Surface Area: " + square.surfaceArea());
+        System.out.println();
+
+        //Circle
+        Circle circle = new Circle(2.5);
+        System.out.println("Circle:");
+        System.out.println("Radius: " + circle.getRadius());
+        System.out.println("Surface Area: " + circle.surfaceArea());
+        System.out.println();
+
+        //Cylinder
+        Cylinder cylinder = new Cylinder(3, 6);
+        System.out.println("Cylinder:");
+        System.out.println("Radius: " + cylinder.getRadius());
+        System.out.println("Height: " + cylinder.getHeight());
+        System.out.println("Volume: " + cylinder.volume());
+        System.out.println("Surface Area: " + cylinder.surfaceArea());
+        System.out.println();
+
+        //Sphere
+        Sphere sphere = new Sphere(4);
+        System.out.println("Sphere:");
+        System.out.println("Radius: " + sphere.getRadius());
+        System.out.println("Volume: " + sphere.volume());
+        System.out.println("Surface Area: " + sphere.surfaceArea());
+    }
+}

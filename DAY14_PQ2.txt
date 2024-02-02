@@ -1,0 +1,16 @@
+//2.Use a built-in package in java to write a class which displays a message after taking input from the user
+
+package sai;
+import java.util.*;
+public class DAY14_PQ2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a message:");
+
+        String userInput = scanner.nextLine();
+
+        System.out.println("Entered Message: " + userInput);
+
+    }
+}
+

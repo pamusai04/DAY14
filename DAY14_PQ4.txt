@@ -1,0 +1,24 @@
+//Question 4
+//4.prove that you cannot access default property but can access protect property from the subclass
+
+import folder.folder1.folder2;
+class c1 extends DAY14_PQ2{
+	void DAY14_PQ2(){
+		System.out.println(proInt);
+		//System.out.println(defInt);
+	}
+}
+public class DAY14_PQ4 {
+	protected int proInt = 4;
+    	int defInt = 4;
+    	public static void main(String[] args) {
+       		System.out.println("I am main method!");
+		C1 C=new c1();
+	}
+}
+
+
+you have to create a package named com.codewithharry.shape 
+this package should have individual classes for Rectangle, Square,circle, Cylinder,Shhere 
+these classes should use inheritance to properly manage the code!
+include methods like volume, surface are and getters/setters for dimensions
